@@ -19,9 +19,10 @@ app.get("/today", async (req, res) => {
     const browser = await puppeteer.launch({ headless: "new" });
     const page = await browser.newPage();
 
-    await page.goto("https://freewinningtips.com/");
+    await page.goto("https://freewinningtips.com/", { timeout: 100000 });
     await page.waitForSelector(
-      "#page-content-wrapper > div > div > div.row.mb-4 > div.col-lg-7 > table"
+      "#page-content-wrapper > div > div > div.row.mb-4 > div.col-lg-7 > table",
+      { timeout: 100000 }
     );
 
     const elementHTML = await page.$eval(
@@ -45,10 +46,12 @@ app.get("/tommorrow", async (req, res) => {
     const page = await browser.newPage();
 
     await page.goto(
-      "https://freewinningtips.com/tomorrows-free-football-predictions"
+      "https://freewinningtips.com/tomorrows-free-football-predictions",
+      { timeout: 100000 }
     );
     await page.waitForSelector(
-      "#page-content-wrapper > div > div > div.row > div.col-lg-7 > table"
+      "#page-content-wrapper > div > div > div.row > div.col-lg-7 > table",
+      { timeout: 100000 }
     );
 
     const elementHTML = await page.$eval(
@@ -72,10 +75,12 @@ app.get("/yesterday", async (req, res) => {
     const page = await browser.newPage();
 
     await page.goto(
-      "https://freewinningtips.com/yesterdays-free-football-predictions"
+      "https://freewinningtips.com/yesterdays-free-football-predictions",
+      { timeout: 100000 }
     );
     await page.waitForSelector(
-      "#page-content-wrapper > div > div > div.row > div.col-lg-7 > table"
+      "#page-content-wrapper > div > div > div.row > div.col-lg-7 > table",
+      { timeout: 100000 }
     );
 
     const elementHTML = await page.$eval(
