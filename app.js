@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000; // You can choose any available port
+const PORT = process.env.PORT || 3000;
 
 // Use CORS middleware
 app.use(cors());
